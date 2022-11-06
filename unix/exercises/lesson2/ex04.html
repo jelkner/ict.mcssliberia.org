@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GDW Unix CLI Lesson 2 Exercise 4</title>
+<style type="text/css">
+body {
+    margin: 50px;
+}
+h1 {
+    text-align: center;
+}
+a, a:visited {
+    text-decoration: none;
+    color: #777;
+}
+main {
+    border: 1px solid #AAA;
+    padding: 20px;
+}
+main > p, main > pre {
+    font-size: x-large;
+}
+main > p > img, main > pre {
+    margin-left: 40px;
+}
+img.terminal {
+    width: 35vw;
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+}
+</style>
+</head>
+<body>
+<h1>Getting Down with the Unix CLI Lesson 2 Exercise 4</h1>
+<main>
+<p>
+Type each of the following commands at the unix command prompt. Observe the
+result of each, and apply your new understanding of the file system to make
+sense of what you see.
+</p>
+<ol>
+  <li><pre>
+  $ mkdir testdir 
+  </pre></li>
+
+  <li><pre>
+  $ mkdir testdir/subdir1
+  </pre></li>
+
+  <li><pre>
+  $ mkdir testdir/subdir2
+  </pre></li>
+
+  <li><pre>
+  $ cd testdir
+  </pre></li>
+
+  <li>
+  <p>
+  Try to anticipate what you will see before running this command. If you get
+  it right, pat yourself on the back and know that your understanding of both
+  the file system and the new unix commands is growing.
+  <p>
+  <pre>
+  $ ls
+  </pre>
+  </li>
+
+  <li><pre>
+  $ cd .. 
+  </pre>
+  <p>
+  What did this do? What is your current working directory now? If you said,
+  <q>my home directory</q>, you're right!
+  </p>
+  </li>
+
+  <li><pre>
+  $ cd testdir
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir3
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir1/subsubdir1
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir3/subsubdir2
+  </pre></li>
+
+  <li><pre>
+  $ touch subdir3/subsubdir2/file1.txt
+  </pre></li>
+
+  <li><pre>
+  $ touch subdir1/subsubdir1/file2.txt
+  </pre></li>
+
+  <li><pre>
+  $ cd .. 
+  </pre></li>
+
+  <li><pre>
+  $ tree testdir</pre>
+  <p>
+  If you followed each step carefully, you should see this in your terminal:
+  </p><p>
+  <img class="terminal" src="images/testdir_tree.png" alt="testdir tree">
+  </p></li>
+
+</ol>
+</main>
+
+<footer>
+<a href="../../lesson2.html">Return to Lesson 2</a> |
+<a href="http://validator.w3.org/check/referer">
+<strong> HTML </strong> Valid! </a> |
+<a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
+<strong> CSS </strong> Valid! </a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GDW Unix CLI Lesson 2 Exercise 5</title>
+<style type="text/css">
+body {
+    margin: 50px;
+}
+h1 {
+    text-align: center;
+}
+a, a:visited {
+    text-decoration: none;
+    color: #777;
+}
+main {
+    border: 1px solid #AAA;
+    padding: 20px;
+}
+main > p, main > pre {
+    font-size: x-large;
+}
+main > p > img, main > pre {
+    margin-left: 40px;
+}
+img.terminal {
+    width: 35vw;
+}
+ol.subexercises {
+    list-style-type: lower-roman;
+}
+ol.subexercises > li {
+    margin-top: 8px;
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+}
+</style>
+</head>
+<body>
+<h1>Getting Down with the Unix CLI Lesson 2 Exercise 5</h1>
+<main>
+<p>
+Type each of the following commands at the unix command prompt. Observe the
+result of each, and apply your new understanding of the file system to make
+sense of what you see.
+</p>
+<ol>
+  <li><pre>
+  $ mkdir newdir 
+  </pre></li>
+
+  <li><pre>
+  $ mkdir newdir/subdir1
+  </pre></li>
+
+  <li><pre>
+  $ mkdir newdir/subdir1/subsubdir1
+  </pre></li>
+
+  <li><pre>
+  $ cd newdir
+  </pre></li>
+
+  <li>
+  <p>
+  As in the previous exercise, try to anticipate what you will see before
+  running this command. If you can't, reread the lesson and see if that can
+  help you figure out what is going on.
+  </p>
+  <pre>
+  $ ls</pre>
+  <p>
+  You should see only the <code>subdir1</code> directory.
+  </p>
+  </li>
+
+  <li><pre>
+  $ mkdir subdir1/subsubdir2 
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir1/subsubdir3 
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir1/subsubdir4 
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir2 
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir2/subsubdir1 subdir2/subsubdir2 subdir2/subsubdir3</pre>
+  <p>
+  The <code>mkdir</code> command can take more than one <i>argument</i>,
+  seperated by a space.  Each argument is a new directory to create. Running
+  this command will create three new directories.
+  </p>
+  </li>
+
+  <li><pre>
+  $ touch subdir2/subsubdir2/file1.txt 
+  </pre></li>
+
+  <li><pre>
+  $ mkdir subdir2/subsubdir3/subsubsubdir1
+  </pre></li>
+
+  <li><pre>
+  $ touch subdir2/subsubdir3/subsubsubdir1/file2.txt 
+  </pre></li>
+
+  <li><pre>
+  $ tree ../newdir</pre>
+  <p>
+  If you followed each step correctly, you will see this in your terminal:
+  </p><p>
+  <img class="terminal" src="images/newdir_tree.png" alt="newdir tree">
+  </p><p>
+  Note the argument to the <code>tree</code> command, <code>../newdir</code>.
+  Since the <code>tree</code> command was run from within the directory,
+  <code>newdir</code>, we needed to first move to the parent of
+  <code>newdir</code>, <code>..</code>, from where <code>newdir</code> can be
+  <q>seen</q> by <code>tree</code>.
+  </p>
+  </li>
+
+  <li>To test your understanding, answer the following questions
+  <i>before you run the command</i>.  If you can answer them correctly, you
+  can have confidence that you understand what we have learned so far.
+  <ol class="subexercises">
+    <li>What would you see if you ran <code>$ ls</code> from inside the
+    <code>newdir</code> directory?</li>
+
+    <li>What would you see if you ran <code>$ ls</code> from inside the
+    <code>subdir1</code> directory?</li>
+
+    <li>What would you see if you ran <code>$ ls</code> from inside the
+    <code>subdir2</code> directory?</li>
+
+    <li>What would you see if you ran <code>$ tree subdir2/subsubdir3</code>
+    from inside the <code>newdir</code> directory?</li>
+  </ol>
+  </li>
+</ol>
+</main>
+
+<footer>
+<a href="../../lesson2.html">Return to Lesson 2</a> |
+<a href="http://validator.w3.org/check/referer">
+<strong> HTML </strong> Valid! </a> |
+<a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
+<strong> CSS </strong> Valid! </a>
+</footer>
+</body>
+</html>

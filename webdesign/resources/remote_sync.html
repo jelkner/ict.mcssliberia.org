@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Remote File Management with scp and rsync</title>
+<style>
+body {
+    margin: 60px;
+    background-color: #FFF;
+}
+h1 {
+    color: #000;
+    text-align: center;
+    font-style: italic;
+}
+main > h1 {
+    padding: 20px;
+    background-color: #FD6;
+    border: 2px dotted #555;
+}
+footer {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #000;
+    text-align: center;
+}
+a:link, a:visited {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+li {
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Remote File Management with <code>scp</code> and <code>rsync</code></h1>
+<p>
+Our goal is to be able to work on a local machine in our CS / IT Web lab and
+easily <a href="https://en.wikipedia.org/wiki/Synchronization">synchronize</a>
+your work with our student web server.
+</p><p>
+Do all of the following to set this up:
+</p>
+<ol>
+<li>Create an <b>ssh key-pair</b> by running:
+<pre>
+$ ssh-keygen
+</pre>
+and then hitting enter (<i>note:</i> don't set a password) until you see
+something like this:
+<pre>
+jejemplo@rms:~$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/jejemplo/.ssh/id_rsa): 
+Created directory '/home/jejemplo/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/jejemplo/.ssh/id_rsa.
+Your public key has been saved in /home/jejemplo/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Al4e2lyafPJibI+qPO/v5yzhSU1BhiBjng+jjPz1kHg jejemplo@rms
+The key's randomart image is:
++---[RSA 2048]----+
+|  + .. oo        |
+| o +  ...        |
+|  = . o ..       |
+|+. =.O.=.        |
+|oo .+EXoS        |
+|  . o.==.        |
+|   . o=+.        |
+| ..  o+=.        |
+|  o=+++++        |
++----[SHA256]-----+
+jejemplo@rms:~$ 
+</pre>
+</li>
+<li>Copy your <b>ssh public key</b> to <code>students.gctaa.net</code> with:
+<pre>
+$ ssh-copy-id students.gctaa.net
+</pre>
+You should now be able to ssh into the student web server without entering
+your password.
+</li>
+<li>Use the <b>scp</b> command to copy your <code>public_html</code> directory
+to your local machine by running the following command at the bash prompt
+<i>from your home directory</i>:
+<pre>
+$ scp -r students.gctaa.net:public_html .
+</pre>
+Note that the dot (<code>.</code>) at the end of the command is an essential
+part of it.
+</li>
+<li>Now add a <a href="http://tldp.org/LDP/abs/html/aliases.html">bash
+alias</a> for running <b>rsync</b> to synchronize changes you make on your
+local machine with the student server. Edit a file named
+<code>.bash_aliases</code> in your home directory and put the following in it:
+<pre>
+alias c2stds="rsync -avz --delete $HOME/public_html students.gctaa.net:"
+alias s2local="rsync -avz --delete students.gctaa.net:public_html/ $HOME/public_html"
+</pre>
+Then run this script from your bash prompt in your home directory with:
+<pre>
+$ . .bash_aliases
+</pre>
+You should now be able to run:
+<pre>
+$ c2stds
+</pre>
+from the bash prompt any time you want to copy your local changes to the
+student server.
+</li>
+</ol>
+</main>
+
+<footer>
+<a href="http://validator.w3.org/check/referer">
+<strong> HTML </strong> It Validates! </a> |
+<a href="http://jigsaw.w3.org/css-validator/check/referer">
+<strong> CSS </strong> It Validates! </a>
+</footer>
+
+</body>
+</html>

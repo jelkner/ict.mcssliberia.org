@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta charset="utf-8">
+<title>Getting Down with ...: Lesson n</title>
+<style>
+@import url(css/gdw.css);
+</style>
+<script src="js/navigation.js"></script>
+<!--
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.3 or any later version
+published by the Free Software Foundation; with no Invariant Sections, no
+Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included
+in the section entitled "GNU Free Documentation License".
+-->
+</head>
+
+<body>
+<header>
+<h1><a href="index.html">Getting Down with ...</a></h1>
+<nav>
+  <a id="s1" href="lesson1.html">lesson 1</a>
+  <a id="s2" href="lesson2.html">lesson 2</a>
+  <a id="s3" href="lesson3.html">lesson 3</a>
+  <a id="s4" href="lesson4.html">lesson 4</a>
+  <a id="s5" href="lesson5.html">lesson 5</a>
+  <a id="s6" href="lesson6.html">lesson 6</a>
+  <a id="s7" href="lesson7.html">lesson 7</a>
+  <a id="s8" href="lesson8.html">lesson 8</a>
+  <a id="s9" href="lesson9.html">lesson 9</a>
+</nav>
+<p id="author">by <span>...</span></p>
+</header>
+
+<h1 id="title">Lesson n:</h1>
+
+<section id="lesson">
+<h2>Files</h2>
+<p>
+A <a href="http://en.wikipedia.org/wiki/Computer_file">file</a> on a modern
+computer system is a named block of
+<a href="http://en.wikipedia.org/wiki/Information">information</a> accessible
+to a
+<a href="http://en.wikipedia.org/wiki/Computer_program">computer program</a>
+and stored on some type of
+<a href="http://en.wikipedia.org/wiki/Non-volatile_memory">non-volatile
+memory</a>.
+</p>
+<p>
+Files can contain both programs and
+<a href="http://en.wikipedia.org/wiki/Data">data</a>, and data files can store
+text, images, sound, video, and many other kinds of data.  The two most common
+types of data files for web designers are
+<a href="http://en.wikipedia.org/wiki/Text_file">text files</a> and
+<a href="http://en.wikipedia.org/wiki/Digital_image">image files</a>. Web pages
+are written in text files.
+</p>
+
+
+<h2>File systems and directories</h2>
+<p>
+Operating systems organize files through the use of a 
+<a href="http://en.wikipedia.org/wiki/File_system">file system</a>.  File
+systems provide tools for the management of files and
+<a href="http://en.wikipedia.org/wiki/Directory_%28file_systems%29">
+directories</a>.  A directory (or <i>folder</i>) is a special type of file that
+can contain other files and directories within it.  Directories are used to
+organize files to make them easier to find.
+</p>
+<p>
+Since a directory can have directories inside it, and those directories can
+directories inside them, and so on, we end up with a
+<a href="http://en.wikipedia.org/wiki/Tree_structure">tree structure</a> for
+the file system.
+</p>
+<p style="text-align: center;">
+<img src="images/lesson2/webappdev_tree_view.png" alt="Tree view of webappdev">
+</p>
+<p>
+The screenshot above shows the
+<a href="http://en.wikipedia.org/wiki/Tree_%28Unix%29">tree</a> program display
+of a directory named <code>webappdev</code> that has four subdirectories named
+<code>css</code>, <code>html</code>, <code>unix</code>, and <code>vim</code>.
+Each of these subdirectories has two more subdirectories named
+<code>examples</code> and <code>notes</code>.  The <code>notes</code> directory
+under <code>unix</code> contains two files, <code>lesson1.txt</code> and
+<code>lesson2.txt</code>. The <code>.txt</code>
+<a href="https://en.wikipedia.org/wiki/Filename_extension">filename
+extention</a> suggests these are text files.
+</p>
+<p>
+A directory that contains a file or directory is called the
+<b>parent directory</b> of that file or subdirectory. In the example above,
+the <code>notes</code> directory is the parent directory of the
+<code>lesson1.txt</code> and <code>lesson2.txt</code> text files, and the
+<code>webappdev</code> directory is the parent of the <code>css</code>,
+<code>html</code>, <code>unix</code>, and <code>vim</code> subdirectories.
+</p>
+
+
+<h2>Paths</h2>
+<p>
+A modern computer system has hundreds of thousands of files and directories.
+By utilizing the tree structure of the file system, it becomes possible to
+organize and manage these hundreds of thousands of files. Each file is located
+in a <a href="https://en.wikipedia.org/wiki/Nesting_(computing)">nested</a>
+series of directories.  The sequence of these nested directories ending with
+the name of the file is called the
+<a href="https://en.wikipedia.org/wiki/Path_(computing)">path</a> to that file.
+</p>
+
+<h3>Absolute Paths</h3>
+<p>
+At the top of the Unix file system is what is called the <b>root directory</b>,
+which is always just <code>/</code> in Unix.  The <b>absolute path</b> to
+any file in the filesystem is the sequence of directories, starting from the
+root and ending with the file.
+</p>
+<p>
+The easiest way to show how this works is by example.  The following diagram
+shows part of a Unix filesystem tree.
+</p>
+<p>
+<img src="images/lesson2/UnixDirectoryTree.png" alt="Unix directory tree">
+</p>
+<p>
+The absolute path to the file <code>lesson1.txt</code> is:
+</p>
+<pre class="source" style="width: 480px;">
+/home/jelkner/webappdev/unix/notes/lesson1.txt
+</pre>
+
+
+<h3>Relative Paths and the Current Working Directory</h3>
+<p>
+The absolute path to a file in the file system can be long, and it is normally
+the case that the user is interested in files that are located in only one
+small part of the system, located near the user.  By <q>near the user</q> we
+mean near in the tree to the user's
+<a href="http://en.wikipedia.org/wiki/Current_working_directory">current
+working directory</a>. You can think of the current working directory as your
+present location as you move around the file system tree.
+</p>
+<p>
+Again, it's much easier to show you than to tell you.
+</p>
+<p style="text-align: center;">
+<img src="images/lesson2/pwd_inside_webappdev.png" alt="Inside webappdev">
+</p>
+<p>
+The screenshot above shows the
+<a href="http://en.wikipedia.org/wiki/Pwd">pwd</a> program displaying the
+current working directory as <code>/home/jelkner/webappdev</code>.  Next
+it shows <a href="http://en.wikipedia.org/wiki/Ls">ls</a> being run, with
+the <code>css</code>, <code>html</code>, <code>unix</code>, and
+<code>vim</code> directories as output.  Lastly, <code>tree</code> is run
+again, this time with no
+<a href="http://en.wikipedia.org/wiki/Command-line_argument#Arguments">
+argument</a>.
+</p>
+<p>
+The relative path from the current working directory to the file
+<code>lesson1.txt</code> is:
+</p>
+<pre class="source" style="width: 240px;">
+unix/notes/lesson1.txt
+</pre>
+<p>
+Notice that relative paths <b>do not</b> start with a slash (<code>/</code>).
+</p>
+
+
+<h3>Short Names for the Current and Parent Directories:
+<code>.</code> and <code>..</code></h3>
+<p>
+In expressing relative paths we need a way to indicate both our current
+working directory and its parent directory. Unix provides a very short way to
+do this.  The current working directory is referred to with a single dot
+(<code>.</code>) and the parent directory is referred to with two dots
+(<code>..</code>). Note that since each file or directory can have only a
+single parent, using <code>..</code> to refer to this parent directory is
+unambiguous.
+</p>
+
+
+<h2>Our First Commands: <code>ls</code>, <code>pwd</code>, <code>cd</code>,
+<code>mkdir</code>, and <code>rmdir</code></h2>
+<p>
+The follow unix commands are used to list the contents of the current working
+directory, print the current working directory itself, move from one directory
+to another, create a new directory, and remove an existing directory.
+</p>
+<div class="source">
+<dl>
+  <dt>ls</dt>
+  <dd>List the contents of the current working directory.  <code>ls</code>
+  has several useful <i>command line options</i> which start with a
+  <code>-</code> (dash) character followed by one or more letters.
+  <dl>
+    <dt>ls -a</dt>
+    <dd>Show hidden files and directories (files and directories whose names
+    begin with <code>.</code> (dot).
+
+    <dt>ls -l</dt>
+    <dd>Show file details using a long format.</dd> 
+
+    <dt>ls -t</dt>
+    <dd>Sort listing by date, newest file first.</dd> 
+
+    <dt>ls -S</dt>
+    <dd>Sort listing by size, largest file first.</dd> 
+  </dl>
+  These options can be combined, so <code>ls -la</code>, <code>ls -lt</code>,
+  <code>ls -lS</code>, and <code>ls -lat</code> are all useful forms.
+  </dd>
+
+  <dt>pwd</dt>
+  <dd>Print working (current) directory.</dd>
+
+  <dt>cd [<code>directory_name</code>]</dt>
+  <dd>Change working directory to <code>directory_name</code>.</dd>
+
+  <dt>mkdir [<code>directory_name</code>]</dt>
+  <dd>Create directory <code>directory_name</code>.</dd>
+
+  <dt>rmdir [<code>directory_name</code>]</dt>
+  <dd>Remove <code>directory_name</code> if it is empty. If not empty, a
+  warning will be returned and the directory will not be removed.</dd>
+</dl>
+</div>
+<p>
+In the <code>webappdev</code> directory tree displayed above with the
+<code>webappdev</code> directory located in the user's home directory
+(<code>/home/[username]/</code>), typing the command:
+<code>cd webappdev/unix</code> at the command prompt would change the current
+working directory to <code>/home/[username]/webappdev/unix</code>.
+</p>
+<p>
+Typing the <code>ls</code> command would then reveal the two subdirectories,
+<code>examples</code>, and <code>notes</code>. Typing <code>pwd</code> will
+display the full path to the current working directory:
+</p>
+<pre class="source" style="width: 320px;">
+/home/[username]/webappdev/unix
+</pre>
+<p>
+To move up one level in the directory tree, typing <code>cd ..</code> will
+change the current working directory to <code>webappdev</code>. Typing
+<code>ls</code> here will display the four subdirectories <code>css</code>,
+<code>html</code>, <code>unix</code>, and <code>vim</code>.
+</p>
+</section>
+
+<section id="exercises">
+<h2>Exercises:</h2>
+<p>
+The following exercises will give you practice with each of these new commands.
+Note that the files that end in <code>.txt</code> in these exercises are text
+files, not directories. Use the following command to create these files:
+</p>
+<pre>
+    $ touch [file_name]
+</pre>
+<p>
+We will learn a better way to create and edit text files in the next lesson.
+</p>
+<ol>
+  <li>
+  What is <i>information</i>? Do you think this is an easy or difficult term
+  to define? Why?
+  </li>
+
+  <li>
+  Read over the wikipedia article on <i>computer program</i>.  In your own
+  words, summarize what a computer program is.
+  </li> 
+
+  <li>
+  According to <a href="http://www.wikipedia.org">Wikipedia</a>, what is
+  <i>non-volatile memory</i>?  Give examples of non-volatile memory (or
+  <q>storage</q>) on the computer systems you use.  What do you think
+  <i>volatile memory</i> is?
+  </li> 
+
+  <li>
+  Practice your new unix commands by following the step-by-step directions in 
+  <a href="exercises/lesson2/ex04.html">this</a> exercise sheet.
+  </li> 
+
+  <li>
+  Get more practice with unix commands by following the step-by-step directions
+  in <a href="exercises/lesson2/ex05.html">this</a> exercise sheet.
+  </li> 
+
+  <li>
+  Use your new unix commands to create the directory pictured in
+  <a href="exercises/lesson2/ex06.html">this</a> exercise sheet.
+  </li>
+
+  <li>
+  Use your new unix commands to create the directory pictured in
+  <a href="exercises/lesson2/ex07.html">this</a> exercise sheet.
+  </li>
+</ol>
+</section>
+
+<footer>
+<hr>
+<p id="finished">Congratulations, you have finished lesson <span>n</span>;</p>
+<p><a id="next" href="">next lesson</a> | <a href="index.html">home page</a></p>
+<p class="button">
+<a href="http://validator.w3.org/check?uri=https://openbookproject.net/tutorials/getdown/unix/lesson2.html">
+<strong> HTML </strong> Valid! </a> &nbsp;
+<a href="http://jigsaw.w3.org/css-validator/validator?uri=https://openbookproject.net/tutorials/getdown/unix/lesson2.html?profile=css3">
+<strong> CSS </strong> Valid! </a>
+</p>
+<p>
+<a href="http://www.ibiblio.org/">
+<img src="http://www.ibiblio.org/hosted/images/sm_hosted_trans.gif" width="100" height="30"
+alt="hosted by ibiblio"></a>
+</p>
+</footer>
+
+</body>
+</html>

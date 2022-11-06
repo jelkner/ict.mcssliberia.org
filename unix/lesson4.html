@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta charset="utf-8">
+<title>Getting Down with ...: Lesson n</title>
+<style>
+@import url(css/gdw.css);
+</style>
+<script src="js/navigation.js"></script>
+<!--
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.3 or any later version
+published by the Free Software Foundation; with no Invariant Sections, no
+Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included
+in the section entitled "GNU Free Documentation License".
+-->
+</head>
+
+<body>
+<header>
+<h1><a href="index.html">Getting Down with ...</a></h1>
+<nav>
+  <a id="s1" href="lesson1.html">lesson 1</a>
+  <a id="s2" href="lesson2.html">lesson 2</a>
+  <a id="s3" href="lesson3.html">lesson 3</a>
+  <a id="s4" href="lesson4.html">lesson 4</a>
+  <a id="s5" href="lesson5.html">lesson 5</a>
+  <a id="s6" href="lesson6.html">lesson 6</a>
+  <a id="s7" href="lesson7.html">lesson 7</a>
+  <a id="s8" href="lesson8.html">lesson 8</a>
+  <a id="s9" href="lesson9.html">lesson 9</a>
+</nav>
+<p id="author">by <span>...</span></p>
+</header>
+
+<h1>Lesson 4: <code>rm</code>, <code>cp</code>, and <code>mv</code></h1>
+
+<section id="lesson">
+<p>
+We know how create directories in the file system tree, change the location of
+the current directory within that tree, and create and edit text files. Now
+we will learn a few Unix commands to manage and maintain our text files.
+</p>
+<p>
+The following unix commands can be used to remove (delete), copy, and move
+or rename a file.
+</p>
+<div class="source">
+<dl>
+  <dt>rm [<code>file_name</code>]</dt>
+  <dd>Remove <code>file_name</code>.
+  </dd>
+
+  <dt>cp [<code>original_file_name</code>] [<code>new_file_name</code>]</dt>
+  <dd>Copy the contents in <code>original_file_name</code> to
+  <code>new_file_name</code>.</dd>
+
+  <dt>mv [<code>original_file_name</code>] [<code>new_file_name</code>]</dt>
+  <dd>Rename or move <code>original_file_name</code> to
+  <code>new_file_name</code>.</dd>
+</dl>
+</div>
+
+
+<h2>The <code>rm</code> Command</h2>
+<p>
+The <code>rm</code> works much like the <code>rmdir</code> command, only it
+takes a file instead of a directory as an argument.
+</p>
+
+<h2>The <code>cp</code> Command</h2>
+<p>
+The <code>cp</code> command behaves differently depending on whether its second
+argument is a file or a directory. For example, given a directory,
+<code>dir</code>, with subdirectory, <code>subdir</code> and containing the
+text file, <code>file.txt</code>:
+</p>
+<pre class="source" style="width: 200px;">
+dir
+├── file.txt
+└── subdir
+</pre>
+<p>
+The command:
+</p>
+<pre style="margin-left: 2em;">
+$ cp file.txt newfile.txt</pre>
+<p>
+run inside the <code>dir</code> directory will create a
+<code>newfile.txt</code> in the directory.
+</p>
+<pre class="source" style="width: 200px;">
+dir
+├── file.txt
+├── newfile.txt
+└── subdir
+</pre>
+<p>
+while the command:
+</p>
+<pre style="margin-left: 2em;">
+$ cp file.txt subdir</pre>
+<p>
+will create a copy of <code>file.txt</code> with the same name in the
+<code>subdir</code> directory.
+</p>
+<pre class="source" style="width: 200px;">
+dir
+├── file.txt
+└── subdir
+    └── file.txt 
+</pre>
+
+
+<h2>The <code>mv</code> Command</h2>
+<p>
+The <code>mv</code> command is used to change the location of a file or
+directory as well as to change the name of a file or directory without changing
+its location.
+</p>
+<p>
+Assume the current working directory is named <code>dir</code>, and that it
+contains two subdirectories and a text file as follows:
+</p>
+<pre class="source" style="width: 200px;">
+dir
+├── file.txt
+├── subdir1
+└── subdir2
+</pre>
+<p>
+Running:
+</p>
+<pre style="margin-left: 2em;">
+$ mv file.txt renamed.txt 
+</pre>
+<p>
+from within the <code>dir</code> directory results in a new name for
+<code>file.txt</code> in the same location:
+</p>
+<pre class="source" style="width: 200px;">
+dir
+├── renamed.txt
+├── subdir1
+└── subdir2
+</pre>
+<p>
+while:
+</p>
+<pre style="margin-left: 2em;">
+$ mv renamed.txt subdir1
+</pre>
+<p>
+results in a new location for <code>renamed.txt</code> without changing its
+name:
+</p>
+<pre class="source" style="width: 200px;">
+dir
+├── subdir1
+│   └── renamed.txt
+└── subdir2
+</pre>
+<p>
+In the exercises you will see how to change name and location at the same time.
+</p>
+
+
+<h2>Hacking Our File System Tree with a Machete: <code>rm -rf</code></h2>
+<p>
+The approach we have taken so far to managing directories and files can be
+likened to leaves growing out of the ends of a branch (<code>mkdir</code>) and
+being pruned one at a time at the tip (<code>rmdir</code> and <code>rm</code>).
+Now we look at a way to hack off entire sections of our file system tree with
+a machete.
+</p>
+<p>
+We have already seen an example of a <i>command argument</i> (also called
+a <i>command flag</i>, <i>command option</i>, or <i>command switch</i>) with
+the <code>ls -l</code> command. Starting with the following directory
+structure:
+</p>
+<pre class="source" style="width: 260px;">
+dir2
+├── sub1
+├── sub2
+│   ├── subsub1
+│   │   └── subsubsub1
+│   │       └── file2.txt
+│   └── subsub2
+│       └── file1.txt
+└── sub3
+</pre>
+<p>
+Running the following command from within the <code>dir2</code> directory:
+</p>
+<pre class="cli">
+$ rm -rf sub2
+</pre>
+<p>
+results in:
+</p>
+<pre class="source" style="width: 200px;">
+dir2
+├── sub1
+└── sub3
+</pre>
+<p>
+<q>Pruning</q> the file system tree at <code>sub2</code> and removing it and
+all the directories and files inside it and their decedents.
+</p>
+</section>
+
+<section id="exercises">
+<h2>Exercises:</h2>
+<ol>
+  <li><p>Assuming you have the <code>word.txt</code> file you created in the
+  <a href="lesson3.html">previous lesson</a>, type the following at the unix
+  command prompt:</p>
+  <pre>
+  $ cp word.txt word2.txt</pre>
+  <p>Use the <code>ls</code> command to verify that you now have both
+  <code>word.txt</code> and <code>word2.txt</code>. Use <code>ls -l</code>
+  see that they are the same size. Edit <code>word2.txt</code> to see that
+  it has the same content as <code>word.txt</code>. Now run:</p>
+  <pre>
+  $ rm word.txt</pre>
+  <p>Again list the files in your current working directory with <code>ls</code>
+  to confirm that <code>word.txt</code> has been deleted (removed).</p>
+  <p>Finally, use the <code>mv</code> command to change the name of the file
+  back to <code>word.txt</code></p> 
+  </li>
+
+  <li><p>The following image shows a directory tree related to foods and food
+  groups.</p>
+  <img src="images/lesson4/foods_tree.png" alt="Tree view of food directory">
+  <p>After being told to create this directory, your assistant tried, but made
+  numerous mistakes. Download
+  <a href="exercises/lesson4/foods.tgz" download="foods.tgz">foods.tgz</a>
+  and run the following command at your bash prompt in the same directory with
+  the file:</p>
+  <pre>
+  $ tar xzvf foods.tgz
+  </pre>
+  <p>This will create a directory tree that looks like this:</p>
+  <pre class="source" style="width: 460px; margin-left: 0;">
+    foods/
+    ├── cereals
+    │   ├── beans.txt
+    │   └── legumes.txt
+    ├── cheetos.txt
+    ├── dairy_and_eggs
+    │   └── eggos.txt
+    ├── fruits
+    │   ├── fish_and_seafood.txt
+    │   ├── fruits.txt
+    │   ├── mil_prodcts.txt
+    │   └── skittles.txt
+    ├── grains.txt
+    └── meats
+        ├── poultry.txt
+        ├── red_meats.txt
+        └── vegetables
+            ├── alliums.txt
+            ├── cruciferous_veggies.txt
+            ├── green_veggies.txt
+            ├── mushrooms.txt
+            └── roots.txt
+  </pre>
+  <p>Your job is to fix all the mistakes your assistant made and put the foods
+  directory into the form shown in the screenshot.</p>
+  </li>
+</ol>
+</section>
+
+<footer>
+<hr>
+<p id="finished">Congratulations, you have finished lesson <span>n</span>;</p>
+<p><a id="next" href="">next lesson</a> | <a href="index.html">home page</a></p>
+<p class="button">
+<a href="http://validator.w3.org/check?uri=https://openbookproject.net/tutorials/getdown/unix/lesson4.html">
+<strong> HTML </strong> Valid! </a> &nbsp;
+<a href="http://jigsaw.w3.org/css-validator/validator?uri=https://openbookproject.net/tutorials/getdown/unix/lesson4.html?profile=css3">
+<strong> CSS </strong> Valid! </a>
+</p>
+<p>
+<a href="http://www.ibiblio.org/">
+<img src="http://www.ibiblio.org/hosted/images/sm_hosted_trans.gif"
+width="100" height="30" alt="hosted by ibiblio"></a>
+</p>
+</footer>
+
+</body>
+</html>

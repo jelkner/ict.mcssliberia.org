@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MCSS CS Principles</title>
+<style>
+@import url(../css/csprinciples.css);
+@import url(../css/ws_tables.css);
+</style>
+</head>
+<body>
+<header>
+<a href="../index.html">
+<img src="../../images/mcss_logo.png" id="header_logo" alt="MCSS Logo"></a>
+<h1>MCSS Computer Science Principles</h1>
+</header>
+<hr>
+<main>
+<h2>Activity 1: Binary (Base-2) Numbers</h2>
+
+<table class="table center large">
+<tr>
+  <th colspan="8">Powers of 2</th>
+</tr>
+<tr>
+  <td>2<sup>7</sup></td>
+  <td>2<sup>6</sup></td>
+  <td>2<sup>5</sup></td>
+  <td>2<sup>4</sup></td>
+  <td>2<sup>3</sup></td>
+  <td>2<sup>2</sup></td>
+  <td>2<sup>1</sup></td>
+  <td>2<sup>0</sup></td>
+</tr>
+<tr>
+  <td>128</td>
+  <td>64</td>
+  <td>32</td>
+  <td>16</td>
+  <td>8</td>
+  <td>4</td>
+  <td>2</td>
+  <td>1</td>
+</tr>
+</table>
+
+<ol>
+<li>
+<p>Fill in the binary equivalents for the decimal numbers below. The first three
+have been completed for you.</p>
+<table class="table">
+<tr>
+  <th>Binary: 4-bit number</th>
+  <th>Decimal</th>
+</tr>
+<tr>
+  <td>0000</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>0001</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>0010</td>
+  <td>2</td>
+</tr>
+<tr>
+  <td></td>
+  <td>3</td>
+</tr>
+<tr>
+  <td></td>
+  <td>4</td>
+</tr>
+<tr>
+  <td></td>
+  <td>5</td>
+</tr>
+<tr>
+  <td></td>
+  <td>6</td>
+</tr>
+<tr>
+  <td></td>
+  <td>7</td>
+</tr>
+<tr>
+  <td></td>
+  <td>8</td>
+</tr>
+<tr>
+  <td></td>
+  <td>9</td>
+</tr>
+<tr>
+  <td></td>
+  <td>10</td>
+</tr>
+<tr>
+  <td></td>
+  <td>11</td>
+</tr>
+<tr>
+  <td></td>
+  <td>12</td>
+</tr>
+<tr>
+  <td></td>
+  <td>13</td>
+</tr>
+<tr>
+  <td></td>
+  <td>14</td>
+</tr>
+<tr>
+  <td></td>
+  <td>15</td>
+</tr>
+</table>
+</li>
+
+<li>
+<p>Complete the chart with all 8-bit binary numbers that have exactly one 1.
+The first two have been done for you.</p>
+<table class="table">
+<tr><th colspan="2">Binary Numbers with Exactly one 1</th>
+<tr>
+  <th>Binary: 8-bit number</th>
+  <th>Decimal</th>
+</tr>
+<tr>
+  <td>0000 0001</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>0000 0010</td>
+  <td>2</td>
+</tr>
+<tr>
+  <td>0000 0100</td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td></td>
+</tr>
+</table>
+</li>
+
+<li>
+<p><b>Conversion Practice</b>: Fill in the table below with the missing binary
+or decimal values.</p>
+<table class="table">
+<tr>
+  <th>Binary</th>
+  <th>Decimal</th>
+</tr>
+<tr>
+  <td>100</td>
+  <td></td>
+</tr>
+<tr>
+  <td>101</td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>6</td>
+</tr>
+<tr>
+  <td>1101</td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>17</td>
+</tr>
+<tr>
+  <td>0001 1111</td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>63</td>
+</tr>
+<tr>
+  <td></td>
+  <td>64</td>
+</tr>
+<tr>
+  <td>1010 1010</td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>127</td>
+</tr>
+<tr>
+  <td></td>
+  <td>128</td>
+</tr>
+<tr>
+  <td>1111 1111</td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>256</td>
+</tr>
+<tr>
+  <td></td>
+  <td>513</td>
+</tr>
+</table>
+</li>
+
+<li><p>When you add a zero to the right of a decimal number, it multiplies its
+value by 10 (For example, <code>42</code> becomes <code>420</code>). What
+happens to the value of a binary number when you add a zero on the right?
+(For example, <code>111</code> would become <code>1110</code>).</p></li>
+
+<li><p>Are the binary numbers <code>11</code> and <code>0011</code> the same
+number?  Why or why not?</p></li>
+
+<li><p>Would two bits be enough to assign a unique binary number to each vowel
+in the English language? Justify your answer.</p></li>
+
+<li><p>How many bits would you need if you wanted to count up to the decimal
+number 1000?</p></li>
+
+<!--
+<li><p>
+</p></li>
+
+<li><p>
+</p></li>
+-->
+</ol>
+</main>
+<hr>
+
+<footer>
+<a href="http://validator.w3.org/check/referer">
+<strong> HTML </strong> Valid! </a> &nbsp; 
+<a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
+<strong> CSS </strong> Valid! </a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+table, th, td {
+  margin: 2vw;
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+table.table th, table.table td {
+  padding: 1vw;
+  text-align: center; 
+}
+table.table th {
+  background-color: #FFEA80;
+  color: #052;
+}
+table.table td {
+  height: 1.2em;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.large {
+  font-size: xx-large;
+}

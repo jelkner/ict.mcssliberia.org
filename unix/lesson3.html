@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta charset="utf-8">
+<title>Getting Down with ...: Lesson n</title>
+<style>
+@import url(css/gdw.css);
+</style>
+<script src="js/navigation.js"></script>
+<!--
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.3 or any later version
+published by the Free Software Foundation; with no Invariant Sections, no
+Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included
+in the section entitled "GNU Free Documentation License".
+-->
+</head>
+
+<body>
+<header>
+<h1><a href="index.html">Getting Down with ...</a></h1>
+<nav>
+  <a id="s1" href="lesson1.html">lesson 1</a>
+  <a id="s2" href="lesson2.html">lesson 2</a>
+  <a id="s3" href="lesson3.html">lesson 3</a>
+  <a id="s4" href="lesson4.html">lesson 4</a>
+  <a id="s5" href="lesson5.html">lesson 5</a>
+  <a id="s6" href="lesson6.html">lesson 6</a>
+  <a id="s7" href="lesson7.html">lesson 7</a>
+  <a id="s8" href="lesson8.html">lesson 8</a>
+  <a id="s9" href="lesson9.html">lesson 9</a>
+</nav>
+<p id="author">by <span>...</span></p>
+</header>
+
+<h1 id="title">Lesson n:</h1>
+
+<section id="lesson">
+<h2>Text files and text editing</h2>
+<p>
+<a href="https://en.wikipedia.org/wiki/Text_file">Text files</a> are files
+in our file system that contain only
+<a href="https://en.wikipedia.org/wiki/Plain_text">plain text</a>. Plain text
+represents
+<a href="https://en.wikipedia.org/wiki/Character_(computing)">characters</a>
+without any information about their appearance, such as whether they are bold,
+centered, in a fancy font, and so forth. Plain text files do not contain this
+information, just the characters of the plain text itself. The source files of
+<a href="https://en.wikipedia.org/wiki/Web_page">web pages</a> and
+<a href="https://en.wikipedia.org/wiki/Computer_program">computer programs</a>
+are examples of common files which are written in plain text.
+</p>
+<p>
+The basic operations we need to perform in working with text files include
+<i>creating</i>, <i>viewing</i>, <i>modifying</i> and <i>deleting</i> them. We
+will learn to delete files in the next lesson. In this lesson we are going to
+learn to create, view, and modify them, a process referred to as
+<a href="https://en.wikipedia.org/wiki/Editing">editing</a> the file.  A
+program called a
+<a href="https://en.wikipedia.org/wiki/Text_editor">text editor</a> is designed
+specifically for the purpose of editing text.
+
+
+<h2>GNU nano</h2>
+<p>
+<a href="https://en.wikipedia.org/wiki/GNU_nano">GNU nano</a> is a simple, easy
+to use command line text editor.  To start nano, type <code>nano</code> at the
+unix command prompt:
+</p>
+<pre>
+$ nano</pre>
+<p>
+The program will load and you will see a screen that looks like this:
+</p>
+<p style="text-align: center;">
+<img class="terminal" src="images/lesson3/nanostart.png" alt="nano start">
+</p>
+<p>
+The bottom two lines of the screen provide help on using nano. The
+<code>^</code> character represents the control key (usually marked with
+<code>Ctrl</code>) on your keyboard. Even though the letters that follow the
+<code>^</code> character appear as capital letters, you do not use the shift
+key when typing them.
+</p>
+<p>
+<q>Write Out</q> in nano means to save the text inside the nano screen to a
+file.  The following screen shot shows what the nano screen looks like
+after the user has pressed <code>Ctrl+o</code> (hold down the <code>Ctrl</code>
+while pressing the <code>o</code> key - this is what <code>^O</code> represents
+in the help at the bottom) and is about to write out two lines of text to a
+file named <code>firstnano.txt</code>:
+</p>
+<p style="text-align: center;">
+<img class="terminal" src="images/lesson3/firstnano.png" alt="firstnano.txt">
+</p>
+<p>
+Pressing the <code>Enter</code> key will now save (write out) the file.
+Pressing <code>Ctrl+x</code> will now exit nano. Nano has many other features,
+many of which you can read about it the How-To Geek blog post,
+<a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/">The Beginner’s Guide to Nano, the Linux
+Command-Line Text Editor</a>. You will be introduced to the much more powerful
+vim editor in a few lessons, however, so we will only need the most basic
+commands here.
+</p>
+</section>
+
+<section id="exercises">
+<h2>Exercises:</h2>
+<ol>
+<li>Type the following at the unix command prompt:
+<pre>
+$ nano word.txt</pre>
+This will create the text file, <code>word.txt</code>, in a nano edit
+session.  Add the following text to the file:
+<pre>
+love</pre>
+Save the file and exit nano. Run the <code>ls</code> command and confirm that
+you see <code>word.txt</code> among the listing.</li>
+
+<li>Type the following at the unix command prompt:
+<pre>
+$ nano fruits.txt</pre>
+Add the following text to the file:
+<pre>
+apples, bananas, grapes, oranges, pears, and strawberries</pre>
+Save the file and exit nano.  Type the following at the unix command prompt:
+<pre>
+$ ls -l</pre>
+You should see one line that looks something like this:
+<pre>
+-rw-rw-r--  1 username username   58 Sep 28 22:16 fruits.txt</pre>
+The <code>58</code> after the owner and group name is the size of the file
+in <a href="https://en.wikipedia.org/wiki/Byte">bytes</a>. Since each
+character is one byte, this file has 58 characters. You'll only count 57.
+The last one is the invisible
+<a href="https://en.wikipedia.org/wiki/End-of-Transmission_character">
+end of file character</a>. Confirm that the <code>word.txt</code> file
+you created in the previous exercise has size 5.
+</li>
+
+<li>Use nano to edit a file named <code>hello.html</code> with the following
+contents:
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Hello World!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</li> 
+
+<li>Download <a href="resources/lesson3/fruitlist.txt"
+download="fruitlist.txt">fruitlist.txt</a>.  Then run:
+<pre>
+$ nano fruitlist.txt</pre>
+to see its contents.
+</li>
+</ol>
+</section>
+
+<footer>
+<hr>
+<p id="finished">Congratulations, you have finished lesson <span>n</span>;</p>
+<p><a id="next" href="">next lesson</a> | <a href="index.html">home page</a></p>
+<p class="button">
+<a href="http://validator.w3.org/check?uri=https://openbookproject.net/tutorials/getdown/unix/lesson3.html">
+<strong> HTML </strong> Valid! </a> &nbsp;
+<a href="http://jigsaw.w3.org/css-validator/validator?uri=https://openbookproject.net/tutorials/getdown/unix/lesson3.html?profile=css3">
+<strong> CSS </strong> Valid! </a>
+</p>
+<p>
+<a href="http://www.ibiblio.org/">
+<img src="http://www.ibiblio.org/hosted/images/sm_hosted_trans.gif"
+width="100" height="30" alt="hosted by ibiblio"></a>
+</p>
+</footer>
+
+</body>
+</html>
