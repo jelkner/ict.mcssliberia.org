@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MCSS Web Design & Development Week 3</title>
+<style>
+@import url(../css/mcssstyle.css);
+</style>
+<script>
+function init() {
+  var loc = window.location.href;
+  var HTMLvalidLinkStr = 'http://validator.w3.org/check?uri=' + loc;
+  var CSSvalidLinkStr = 'http://jigsaw.w3.org/css-validator/validator?uri=' +
+                        loc + '?profile=css3';
+  document.getElementById("vLink1").setAttribute("href", HTMLvalidLinkStr);
+  document.getElementById("vLink2").setAttribute("href", CSSvalidLinkStr);
+}
+window.onload = init;
+</script>
+</head>
+<body>
+<header>
+<a href="index.html">
+<img src="../images/mcss_logo.png" alt="MCSS Logo"></a>
+<div>
+<h2>Monrovia Consolidated School System ICT Program</h2>
+<h1>Web Design &amp; Development: Week 3</h1>
+</div>
+</header>
+<hr>
+
+<main>
+<time datetime="2022-11-25">Week of Saturday, November 25, 2022</time>
+
+<h2>Overview</h2>
+<div>
+<p>
+I'm still trying to adjust my planning to the expections I can have about how
+much time you will be able to devote to study inbetween our Saturday sessions.
+Our first task today will be to get more clarity around that question.
+</p>
+</div>
+
+<h2>Goals for Week 3</h2>
+<div>
+<p>
+<a href="https://shallonvaye.github.io/website/about.html"> Shallon</a>,
+<a href="https://tboimah.github.io/website/about.html">Thomas</a>,
+<a href="https://danielcammu.github.io/website/about.html">Daniel</a>,
+and
+<a href="https://jkollie1.github.io/website/About.html">Janet</a>
+completed at least part of the assignment. I'll work with them to finish,
+and the rest of you can do the assignment today that you didn't do last week.
+</p>
+<ol>
+<li>
+Read <a href="../resources/TanakaChirara_v1.3.pdf">Tanaka's presentation</a>
+and come to class on Saturday, November 26th prepared to discuss it.
+</li>
+<li>
+Add a new page to your website in a file named <code>about.html</code> that
+has biographical information about you.
+</li>
+<li>
+Make a <b>link</b> from your homepage to your <code>about.html</code> page.
+</li>
+</ol>
+
+</div>
+
+<h2>Shout Outs</h2>
+<div>
+<p>
+Shout out to <a href="https://tboimah.github.io/website/">Thomas</a> for
+completing the assignment from last week, and to
+<a href="https://github.com/shallonvaye/website">Shallon</a>,
+<a href="https://github.com/danielcammu/website">Daniel</a>,
+and
+<a href="https://github.com/jkollie1/website">Janet</a> for getting part of
+it.
+</p>
+</div>
+</main>
+
+<footer id="vLinks">
+<hr>
+<a id="vLink1">
+<strong> HTML </strong> Valid! </a> &nbsp; 
+<a id="vLink2">
+<strong> CSS </strong> Valid! </a>
+</footer>
+</body>
+</html>

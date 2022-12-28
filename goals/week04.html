@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MCSS Web Design & Development Week 4</title>
+<style>
+@import url(../css/mcssstyle.css);
+</style>
+<script>
+function init() {
+  var loc = window.location.href;
+  var HTMLvalidLinkStr = 'http://validator.w3.org/check?uri=' + loc;
+  var CSSvalidLinkStr = 'http://jigsaw.w3.org/css-validator/validator?uri=' +
+                        loc + '?profile=css3';
+  document.getElementById("vLink1").setAttribute("href", HTMLvalidLinkStr);
+  document.getElementById("vLink2").setAttribute("href", CSSvalidLinkStr);
+}
+window.onload = init;
+</script>
+</head>
+<body>
+<header>
+<a href="index.html">
+<img src="../images/mcss_logo.png" alt="MCSS Logo"></a>
+<div>
+<h2>Monrovia Consolidated School System ICT Program</h2>
+<h1>Web Design &amp; Development: Week 4</h1>
+</div>
+</header>
+<hr>
+
+<main>
+<time datetime="2022-12-03">Week of Saturday, December 3, 2022</time>
+
+<h2>Goals for Week 4</h2>
+<div>
+<p>
+Your assignment this week is to begin using <i>Head First HTML and CSS</i> to
+learn HTML and CSS.
+</p><p>
+You can find resources (images files and such) for the book
+<a href="https://wickedlysmart.com/hfhtmlcss/">here</a>.        
+</p><p>
+During next week I will continue trying to work with Freena, Jallah, and
+Spencer to get access to our student server.
+</p>
+</div>
+</main>
+
+<footer id="vLinks">
+<hr>
+<a id="vLink1">
+<strong> HTML </strong> Valid! </a> &nbsp; 
+<a id="vLink2">
+<strong> CSS </strong> Valid! </a>
+</footer>
+</body>
+</html>
